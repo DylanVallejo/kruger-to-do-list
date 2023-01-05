@@ -1,9 +1,11 @@
 import './App.css';
 
+import TaskMasterPage from './components/page/TaskMasterPage';
+
 function App() {
   return (
     <div className="App">
-     <h1>App component</h1>
+      <TaskMasterPage/>
     </div>
   );
 }
