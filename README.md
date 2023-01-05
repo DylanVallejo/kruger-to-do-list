@@ -1,6 +1,11 @@
 # kruger-to-do-list
 
   **Creating a todo list to practice hooks, state, style and data manipulation**
+  
+  - In this repository you can find My Proyect.
+
+![Screenshot_20230104_111526](https://user-images.githubusercontent.com/99937413/210700816-21651e11-8751-47c0-bd0f-628560ee03ac.png)
+
 
 ## Built With
 - React
