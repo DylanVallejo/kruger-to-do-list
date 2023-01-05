@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import styles from './Taskmaster.module.css'
+
 const Taskmaster = () =>{
     const [input, setInput] = useState('');
     const [task, setTask] = useState([])
@@ -47,7 +47,9 @@ const Taskmaster = () =>{
     return(
         
         <div className='container'>
-            <h1 className={styles.heading}>TaskMaster</h1>
+            <h1 className='heading'>TaskMaster</h1>
+            <img src={require('./kmaleon-Krugerlabs.png')} alt='taskmaster' className='camaleon'/>
+            
                 {/* creando un formulario para obtener el valor del nuevo task*/}
                 <form onSubmit={add}>
                     <input
@@ -60,7 +62,9 @@ const Taskmaster = () =>{
                 </form>
                 {task.map((item, i) => (
                     <div className='raws' key={i}>
-                        <span style={{ textDecoration: item.completed && 'line-through' }}>{item.text}</span>
+                        <div className='spanContainer'>
+                            <span  className='span-map' style={{ textDecoration: item.completed && 'line-through' }}>{item.text}</span>
+                        </div>
                         <input
                             className='check'
                             type="checkbox"
