@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styles from './Taskmaster.module.css'
-const Taskmaster =() =>{
+const Taskmaster = () =>{
     const [input, setInput] = useState('');
     const [task, setTask] = useState([])
     
@@ -17,7 +17,13 @@ const Taskmaster =() =>{
         setInput('');
     }
     
-    console.log(task);
+    //
+    //filtra el array de objetos y retorna los que cumplen la condicion
+    const  remove = (index) => {
+        
+        setTask(task.filter((_item,i)=> i !== index));
+    
+    }
 
     
     return(
@@ -34,6 +40,12 @@ const Taskmaster =() =>{
                         />
                     <button className='add-btn'>Add</button>
                 </form>
+                {task.map((item, i) => (
+                    <div className='raws' key={i}>
+                        <span>{item.text}</span>
+                        <button className='delete-btn' onClick={() => remove(i)}>Delete</button>
+                    </div>
+                ))}
         </div>
         
     )
