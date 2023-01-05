@@ -22,7 +22,25 @@ const Taskmaster = () =>{
     const  remove = (index) => {
         
         setTask(task.filter((_item,i)=> i !== index));
+        console.log('eliminado');
+        console.log(index);
     
+    }
+    
+    const toggleChecked = (index) => {
+        ///haciendo un spread de task con el parametro de index
+        const obj = {
+            ...task[index]
+        };
+        // cambiando el valor de object completed a true o false
+        obj.completed= !obj.completed;
+        //seteando el valor nuevo  de task con slice accediendo al index del  objeto y dandole el valor de obj
+        //concatenando el array y modificando el index + 1 para que los task mantengan el orden
+        setTask([
+            ...task.slice(0, index),obj
+        ].concat(task.slice(index + 1)));
+        console.log("indice listo");
+        console.log(index);
     }
 
     
@@ -42,7 +60,14 @@ const Taskmaster = () =>{
                 </form>
                 {task.map((item, i) => (
                     <div className='raws' key={i}>
-                        <span>{item.text}</span>
+                        <span style={{ textDecoration: item.completed && 'line-through' }}>{item.text}</span>
+                        <input
+                            className='check'
+                            type="checkbox"
+                            checked={item.completed}
+                            onClick={() => toggleChecked(i)}
+                            readOnly
+                        />
                         <button className='delete-btn' onClick={() => remove(i)}>Delete</button>
                     </div>
                 ))}
